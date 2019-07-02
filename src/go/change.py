@@ -4,7 +4,7 @@ i=1
 
 line = ''
 tmp = ''
-f= open('sample.md','r',encoding='UTF-8')
+f= open('../../data/sample.md','r',encoding='UTF-8')
 for line in f:
         line = line[::-1]
         tmp += line
