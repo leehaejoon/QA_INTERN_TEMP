@@ -1,3 +1,5 @@
+import re
+
 def read_file(file_name):
     with open(file_name, 'r') as f:
         _line = f.readline()
@@ -8,12 +10,14 @@ def read_file(file_name):
     return line_list
 
 def line_reverse(line_list):
+    p = re.compile("\w+")
     reverse_line_list = []
     for line in line_list:
-        input_list = line.split()
-        if len(input_list) > 1:
-            reverse_str = input_list[0] + " " + " ".join(input_list[1:])[::-1]
-            reverse_line_list.append(reverse_str)
+        if len(line) > 1:
+            pure_str_list = p.findall(line)
+            pure_str = " ".join(pure_str_list)
+            reversed_str = pure_str[::-1]
+            reverse_line_list.append(line.replace(pure_str, reversed_str))
     return reverse_line_list
 
 def file_write(file_name, reverse_list):
