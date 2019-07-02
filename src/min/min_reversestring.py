@@ -1,4 +1,3 @@
-import re
 file = open('sample.md', "r", encoding='UTF-8')
 f = open('result_min.md','w', encoding='UTF-8')
 for line in file:
