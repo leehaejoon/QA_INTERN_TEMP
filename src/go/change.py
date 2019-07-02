@@ -1,5 +1,5 @@
 import sys
-
+ 
 def findspace(string):
         count =0
         search = ' '
