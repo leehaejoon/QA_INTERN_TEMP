@@ -2,6 +2,6 @@
 Temporary repository for github exercises
 
 ```python
-def hello:
+def hello():
     print('hello')
 ```
