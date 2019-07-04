@@ -30,12 +30,9 @@ def input_db(string):
     conn.close()
 
 if __name__ == '__main__':
-    try:
-        if(len(sys.argv) == 2):
-            input_db(sys.argv[1])
-
-    except:
-        if (len(sys.argv) == 1):
-            print("Doesn't exist USER_ID")
-        else:
-            print("invalid Command")
+    if(len(sys.argv) == 2):
+        input_db(sys.argv[1])
+    elif(len(sys.argv) == 1):
+        print("Doesn't exist USER_ID")
+    else:
+        print("invalid Command")
