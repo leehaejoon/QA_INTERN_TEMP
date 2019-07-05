@@ -10,11 +10,11 @@ def read_file(file_name):
     return line_list
 
 def line_reverse(line_list):
-    p = re.compile("\w+")
+    pattern = re.compile("\w+")
     reverse_line_list = []
     for line in line_list:
         if len(line) > 1:
-            pure_str_list = p.findall(line)
+            pure_str_list = pattern.findall(line)
             pure_str = " ".join(pure_str_list)
             reversed_str = pure_str[::-1]
             reverse_line_list.append(line.replace(pure_str, reversed_str))
