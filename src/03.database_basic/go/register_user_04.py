@@ -2,9 +2,6 @@ import sqlite3
 import datetime
 import sys
 
-
-
-
 def input_db(string,db_path):
     sql = "INSERT INTO REGISTER_DATE VALUES (?,?,?,?,?,?,?)"
     dt = datetime.datetime.now()
