@@ -13,7 +13,7 @@ def set_hashLine(line, left, num):
     return line[left:num]
 
 def set_strLine(line, num, left, right):
-    return line[num-left:right]
+    return line[num-left:right].strip()
 
 def revers_str(reline):
     return reline[::-1]
@@ -38,9 +38,10 @@ def revers_string(src_path, re_path):
             right = find_len(line)
             if left > -1:
                 size = set_hashLine(line, left, num)
-                reline = set_strLine(line, num, left, right)
+                reline = set_strLine(line, num, left, right).strip(' ')
                 reline = revers_str(reline)
                 result = set_result(size, reline)
+
                 write_result(re_path, result)
             else:
                 write_blank(re_path)
@@ -52,7 +53,7 @@ class Test_revers_string(unittest.TestCase):
         self.src_path = "test_sample.txt"
         self.re_path = "test_sample_result10.txt"
 
-        self.line = '@ 줄째첫'
+        self.line = '# 줄째첫'
         with open(self.src_path, 'wt', encoding='UTF-8')as self.test_sample_file:
             self.test_sample_file.write(self.line)
 
@@ -75,12 +76,12 @@ class Test_revers_string(unittest.TestCase):
 
     def test_find_len(self):
         self.assertEqual(find_len(self.line),5)
-    
+
     def test_set_hashLine(self):
         self.assertEqual(set_hashLine(self.line, self.left, self.num),'#', msg="#으로 이루어진 부분이 없음")
 
     def test_set_strLine(self):
-        self.assertEqual(set_strLine(self.line, self.num, self.left, self.right),' 줄째첫')
+        self.assertEqual(set_strLine(self.line, self.num, self.left, self.right),'줄째첫')
 
     def test_revers_str(self):
         only_str = '줄째첫'
@@ -99,8 +100,7 @@ class Test_revers_string(unittest.TestCase):
         revers_string(self.src_path,self.re_path)
         with open(self.re_path, 'rt', encoding='UTF-8')as r:
             confirm_line = r.read()
-        self.assertEqual(confirm_line, '# 첫째줄 ', msg="예상한 결과값(# 첫째줄)과 같이 않음")
-
+        self.assertEqual(confirm_line, '# 첫째줄', msg="예상한 결과값(# 첫째줄)과 같이 않음")
 
 if __name__ == "__main__":
     unittest.main()
