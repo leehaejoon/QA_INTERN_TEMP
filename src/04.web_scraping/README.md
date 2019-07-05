@@ -89,6 +89,10 @@ $ python web_monitor.py
 파이썬 메일보내기 기능은 구글에서 "파이썬 메일 알람"으로 검색해서 나오는 코드를 복사해서 사용하시면
 됩니다
 
+메일의 제목은 "[파이콘튜토리얼 티켓 오픈 알림] {본인 이름}-{현재시간}"
+메일 내용은 https://www.pycon.kr/ticket/overview 웹 주소
+메일 받는 사람은 leehaejoon@mobigen.com, cleanby@mobigen.com 두 메일을 포함하여 자기 자신의 메일 이렇게 3명한테 알림을 보내면 됩니다
+
 
 <br/>
 
