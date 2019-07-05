@@ -69,16 +69,16 @@ class Test_revers_string(unittest.TestCase):
         pass
 
     def test_find_hash(self):
-        self.assertEqual(find_hash(self.line), 1)
+        self.assertEqual(find_hash(self.line), 1, msg="#이 없는 문장")
 
     def test_find_left(self):
-        self.assertEqual(find_left(self.line),0)
+        self.assertEqual(find_left(self.line),0, msg="#의 위치를 찾을 수 없는 문장")
 
     def test_find_len(self):
         self.assertEqual(find_len(self.line),5)
 
     def test_set_hashLine(self):
-        self.assertEqual(set_hashLine(self.line, self.left, self.num),'#')
+        self.assertEqual(set_hashLine(self.line, self.left, self.num),'#', msg="#으로 이루어진 부분이 없음")
 
     def test_set_strLine(self):
         self.assertEqual(set_strLine(self.line, self.num, self.left, self.right),'줄째첫')
@@ -88,19 +88,19 @@ class Test_revers_string(unittest.TestCase):
         self.assertEqual(revers_str(only_str),'첫째줄')
 
     def test_set_result(self):
-        self.assertEqual(set_result(self.size, self.reline),'# 첫째줄')
+        self.assertEqual(set_result(self.size, self.reline),'# 첫째줄', msg="#이 없기 때문에 '# 첫째줄'과 같지 않음")
 
     def test_write_result(self):
         write_result(self.re_path, self.result)
         with open(self.re_path, 'rt', encoding='UTF-8')as r:
             confirm_line = r.read()
-        self.assertEqual(confirm_line, '# 첫째줄')
+        self.assertEqual(confirm_line, '# 첫째줄', msg="예상한 결과값(# 첫째줄)과 같이 않음")
 
     def test_revers_string(self):
         revers_string(self.src_path,self.re_path)
         with open(self.re_path, 'rt', encoding='UTF-8')as r:
             confirm_line = r.read()
-        self.assertEqual(confirm_line, '# 첫째줄')
+        self.assertEqual(confirm_line, '# 첫째줄', msg="예상한 결과값(# 첫째줄)과 같이 않음")
 
 if __name__ == "__main__":
     unittest.main()
